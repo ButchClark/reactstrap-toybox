@@ -4,18 +4,17 @@ import Event from '../components/Event'
 class Events extends Component {
     render() {
         let events = [
-            {timestamp: 123, type: 'order-accepted-event'},
-            {timestamp: 345, type: 'preprocessing-completed-event'},
-            {timestamp: 567, type: 'order-preprocessed-event'},
-            {timestamp: 666, type: 'tasks-created-event'},
-            {timestamp: 789, type: 'order-closed-event'}
+            {id: 1, timestamp: 123, type: 'order-accepted-event'},
+            {id: 2, timestamp: 345, type: 'preprocessing-completed-event'},
+            {id: 3, timestamp: 567, type: 'order-preprocessed-event'},
+            {id: 4, timestamp: 666, type: 'tasks-created-event'},
+            {id: 5, timestamp: 789, type: 'order-closed-event'}
         ]
-
         return (
             <div>
                 <p>Events:</p>
                 {
-                    events.map(e=> <Event event={e}/>)
+                    events.map(e=> <Event key={e.id} event={e}/>)
                 }
             </div>
         )

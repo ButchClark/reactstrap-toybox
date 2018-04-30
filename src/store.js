@@ -5,7 +5,6 @@ import * as reducers from './reducers'
 import logger from 'redux-logger'
 
 const initialState = {
-    order: {},
     events: []
 }
 
