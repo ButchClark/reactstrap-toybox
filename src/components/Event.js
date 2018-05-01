@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Card, CardBody, Collapse} from 'reactstrap'
+import {Button, Card, CardText, CardBody, CardTitle, Collapse} from 'reactstrap'
 
 class Event extends React.Component {
 
@@ -29,21 +29,30 @@ class Event extends React.Component {
     // }
 
     render() {
+        console.log('>Event:  event=')
+        console.dir(this.event)
+        let cardProps = {}
+        if( this.event.domoEvent.type === 'order-accepted-event'){
+            cardProps.body="true"
+            cardProps.inverse="true"
+            cardProps.color="info"
+        }
+        console.log(` .. cardProps: ${cardProps}`)
+
         return (
-            <div key={this.event.id}>
+            <div>
                 {/*<Button color="primary" onClick={this.toggle} style={{marginBottom: '1rem'}}>Toggle</Button>*/}
-                <Button color="primary" style={{marginBottom: '1rem'}}>Toggle</Button>
-                <Collapse isOpen={this.state.collapse}>
-                    <Card>
-                        <CardBody>
-                            {this.event.timestamp} - {this.event.type}
-                        </CardBody>
+                <Collapse isOpen={true}>
+                    <CardTitle>{this.event.domoEvent.type}</CardTitle>
+                    <Card {...cardProps}>
+                    {/*<Card body inverse color={this.event.domoEvent.type==="order-accepted-event"?"warning":"info"}>*/}
+                        <CardText> {this.event.createdAt} - {this.event.domoEvent.type} </CardText>
                     </Card>
                 </Collapse>
+                < Button color="info"> Toggle </Button>
             </div>
         )
     }
-
 }
 
 export default Event
