@@ -8,7 +8,7 @@ import {Provider} from 'react-redux'
 import store from './store'
 import {loadEvents} from "./actions";
 
-store.dispatch(loadEvents())
+// store.dispatch(loadEvents())
 
 ReactDOM.render(
     <Provider store={store}>

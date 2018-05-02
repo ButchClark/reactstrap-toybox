@@ -7,10 +7,9 @@ import {bindActionCreators} from 'redux'
 class GuidSelector extends React.Component {
 
     loadOrderHandler = (e) =>{
+        e.preventDefault()
         console.log(">GuidSelector.loadOrderHandler()...")
-        console.log(` - e.target: `)
-        console.dir(e.target)
-        loadEvents(e.target.guid.value)
+        this.props.loadEvents(e.target.guid.value)
     }
     render() {
 

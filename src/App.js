@@ -15,14 +15,6 @@ class App extends Component {
             }
         }
 
-
-        let events = [
-            {timestamp: 123, type: 'order-accepted-event'},
-            {timestamp: 345, type: 'preprocessing-completed-event'},
-            {timestamp: 567, type: 'order-preprocessed-event'},
-            {timestamp: 666, type: 'tasks-created-event'},
-            {timestamp: 789, type: 'order-closed-event'}
-        ]
         return (
             <Container>
                 <Row >
@@ -37,7 +29,7 @@ class App extends Component {
                         <OrderContainer order={order}/>
                     </Col>
                     <Col>
-                        <Events events={events}/>
+                        <Events />
                     </Col>
                 </Row>
             </Container>

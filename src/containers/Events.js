@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 class Events extends Component {
     render() {
         const payload = (typeof this.props.events === 'undefined')
-            ? "Loading..."
+            ? "No Events..."
             : this.props.events.map((e) => <Event key={e.domoEvent.eventId} event={e}/>)
         return (
             <div>
