@@ -7,7 +7,10 @@ import logger from 'redux-logger'
 const initialState = {
     events: {
         events: [],
-
+    },
+    order: {},
+    display: {
+        showStartingSearch: true
     }
 }
 

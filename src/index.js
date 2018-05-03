@@ -6,9 +6,6 @@ import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.css'
 import {Provider} from 'react-redux'
 import store from './store'
-import {loadEvents} from "./actions";
-
-// store.dispatch(loadEvents())
 
 ReactDOM.render(
     <Provider store={store}>

@@ -17,7 +17,7 @@ class GuidSelector extends React.Component {
             <Form onSubmit={(e)=>this.loadOrderHandler(e)}>
                 <FormGroup >
                     <Input name="guid" placeholder="clientOrderGuid"/>
-                    <Button color="warning" type="submit">Load Order</Button>
+                    <Button color="warning" type="submit">Load Events</Button>
                 </FormGroup>
             </Form>
         )

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import {Card,CardBody} from 'reactstrap'
+import Order from '../components/Order'
+import {connect} from 'react-redux'
 
 class OrderContainer extends Component{
     constructor(props){
@@ -12,12 +13,17 @@ class OrderContainer extends Component{
         return (
             <div>
                 <h2>The Order</h2>
-                <Card>
-                    <CardBody>{JSON.stringify(this.order)}</CardBody>
-                </Card>
+                <Order order={this.order} />
             </div>
         )
     }
 }
-
-export default OrderContainer
+const mapStateToProps = state =>{
+    return {
+        order: state.order
+    }
+}
+export default connect(
+    mapStateToProps,
+    null
+)(OrderContainer)

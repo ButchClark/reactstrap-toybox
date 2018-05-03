@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Card, CardText, CardBody, CardTitle, Collapse} from 'reactstrap'
+import {Button, Card, CardText, CardTitle, Collapse} from 'reactstrap'
 
 class Event extends React.Component {
 

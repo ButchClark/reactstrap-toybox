@@ -1,10 +1,18 @@
 import {
     EVENTS_LOADED,
-    TOGGLE_SHOW_COMPOSE
+    ORDER_LOADED,
+    TOGGLE_SHOW_COMPOSE,
+    TOGGLE_SHOW_STARTING_SEARCH
 } from '../actions/index'
 
-const initialState={
-    events: []
+const initialState = {
+    events: {
+        events: [],
+    },
+    order: {},
+    display: {
+        showStartingSearch: true
+    }
 }
 
 export function events(state=initialState, action){
@@ -25,6 +33,31 @@ export function events(state=initialState, action){
                 showCompose: !state.events.showCompose
             }
 
+        default:
+            return state
+    }
+}
+
+
+export function order(state=initialState, action){
+    console.log(`>reducers.order(): action.type: ${action.type}`)
+    switch(action.type){
+        case ORDER_LOADED:
+            return action.order
+
+        default:
+            return state
+    }
+}
+
+export function display(state=initialState, action){
+    console.log(`>reducers.display() - action.type: ${action.type}`)
+    switch(action.type){
+        case TOGGLE_SHOW_STARTING_SEARCH:
+            return {
+                ...state,
+                showStartingSearch: !state.display.showStartingSearch
+            }
         default:
             return state
     }

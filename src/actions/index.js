@@ -1,7 +1,10 @@
 export const EVENTS_LOADED = 'EVENTS_LOADED'
+export const ORDER_LOADED = 'ORDER_LOADED'
 export const TOGGLE_SHOW_COMPOSE='TOGGLE_SHOW_COMPOSE'
+export const TOGGLE_SHOW_STARTING_SEARCH='TOGGLE_SHOW_STARTING_SEARCH'
 
-const newEvents2 = [{ "createdAt": "2018-04-05T11:03:19.932-06:00", "domoEvent": { "eventId": "deed8ec0-c885-4d82-91de-8367e333cd9d",
+const newEvents2 = [
+    { "createdAt": "2018-04-05T11:03:19.932-06:00", "domoEvent": { "eventId": "deed8ec0-c885-4d82-91de-8367e333cd9d",
         "timestamp": 1522947799925,
         "type": "order-accepted-event",
         "clientOrderGuid": "765f07db-0589-4816-1234-123456789012",
@@ -160,18 +163,101 @@ const newEvents2 = [{ "createdAt": "2018-04-05T11:03:19.932-06:00", "domoEvent":
     }
 }]
 
-/*
-export function loadEvents(clientOrderGuid) {
-
-
-    console.log(`>actions.loadEvent() for: ${clientOrderGuid}`)
-    return async (dispatch) => {
-        console.log("returned async(dispatch) - calling dispatch for EVENTS_LOADED now...");
-        dispatch({type: EVENTS_LOADED, events: newEvents2})
+const theOrder = {
+        dishCustomerId: "DISH581641099720",
+        clientOrderGuid: "5JANUARY",
+        cft: "AMDOCS",
+        attributes: {},
+        lines: [
+            {
+                id: "1",
+                type: "customer",
+                attributes: {
+                    partyType: "PERSON",
+                    firstName: "Jim",
+                    middleName: "L",
+                    lastName: "Unicorn",
+                    salutation: "Mr",
+                    phoneContacts: [
+                        {
+                            phonePosition: 1,
+                            phoneNumber: "3035551212"
+                        }
+                    ],
+                    relations: [
+                        {
+                            providerId: "AMDOCS-CUS",
+                            extRefNum: "AMD9870769"
+                        }
+                    ]
+                }
+            },
+            {
+                id: "2",
+                type: "returnDbsEquipment",
+                attributes: {
+                    requestType: "ADVANCE EXCH",
+                    smartCardNumber: "S2300872005",
+                    circuitAccountNumber: "R1947849176",
+                    shipVia: "Standard",
+                    failureCode: "Power Failure",
+                    warrantyType: "DOA",
+                    detailLineType: "IN BOUND",
+                    type: "REPAIR",
+                    payTerms: "NO CHARGE",
+                    shipping: {
+                        address: {
+                            firstName: "Jim",
+                            lastName: "Unicorn",
+                            addressLine1: "1234 Main St",
+                            addressLine2: "APT 2",
+                            city: "Denver",
+                            state: "CO",
+                            zip: "80111",
+                            zip4: "1111"
+                        }
+                    }
+                }
+            },
+            {
+                id: "3",
+                type: "returnDbsEquipment",
+                attributes: {
+                    requestType: "ADVANCE EXCH",
+                    smartCardNumber: "S2300872005",
+                    circuitAccountNumber: "R1947849176",
+                    shipVia: "Standard",
+                    failureCode: "Power Failure",
+                    warrantyType: "DOA",
+                    detailLineType: "OUT BOUND",
+                    type: "REPAIR",
+                    payTerms: "NO CHARGE",
+                    shipping: {
+                        "address": {
+                            firstName: "Jim",
+                            lastName: "Unicorn",
+                            addressLine1: "1234 Main St",
+                            addressLine2: "APT 2",
+                            city: "Denver",
+                            state: "CO",
+                            zip: "80111",
+                            zip4: "1111"
+                        }
+                    }
+                }
+            }
+        ]
     }
 
+export function loadOrder(){
+    console.log(`>actions.loadOrder()`)
+    return async (dispatch)=>{
+        dispatch({
+            type: ORDER_LOADED,
+            order: theOrder
+        })
+    }
 }
-*/
 
 export function loadEvents(clientOrderGuid) {
     console.log(`>actions.loadEvent() for: ${clientOrderGuid}`)
@@ -179,6 +265,7 @@ export function loadEvents(clientOrderGuid) {
         console.log(".. calling dispatch TOGGLE_SHOW_COMPOSE")
         dispatch({type: TOGGLE_SHOW_COMPOSE})
 
+        console.log(".. calling dispatch TOGGLE_SHOW_")
         console.log(".. calling dispatch EVENTS_LOADED")
         dispatch({
             type: EVENTS_LOADED,
@@ -191,5 +278,13 @@ export function toggleShowCompose() {
     console.log('toggleShowCompose')
     return async (dispatch) => {
         dispatch({type: TOGGLE_SHOW_COMPOSE})
+    }
+}
+
+
+export function toggleShowStartingSearch() {
+    console.log('toggleShowStartingSearch')
+    return async (dispatch) => {
+        dispatch({type: TOGGLE_SHOW_STARTING_SEARCH})
     }
 }
