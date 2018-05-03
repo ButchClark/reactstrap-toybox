@@ -3,6 +3,36 @@ export const ORDER_LOADED = 'ORDER_LOADED'
 export const TOGGLE_SHOW_COMPOSE='TOGGLE_SHOW_COMPOSE'
 export const TOGGLE_SHOW_STARTING_SEARCH='TOGGLE_SHOW_STARTING_SEARCH'
 
+
+const mongoAddress = "demongodb04"
+const mongoPort = 30000
+const mongoUsername = "devrw"
+const mongoPassword = "devpass09"
+
+export function getOrderAcceptedCount(){
+    console.log('>actions.getOrderAcceptedCount().....')
+    var mongoose = require('mongoose')
+    const options = {server: {socketOptions: {keepAlive:1 }} }
+    const connectString = `mongodb://${mongoUsername}:${mongoPassword}@${mongoAddress}:${mongoPort}/DOMO_FOE`
+    console.log(`calling mongoose.connect now with: ${connectString} `)
+    mongoose.connect(connectString, options)
+    console.log(`Connected to mongo! - `)
+
+    mongoose.connection.on('connected', function(err){
+        console.log(`Connected to mongo DB using chain: ${connectString}`)
+    })
+
+    mongoose.connection.on('error', function(err){
+        console.log(`ERROR connecting to DB: ${err}`)
+    })
+
+    mongoose.connection.on('disconnected', function(){
+        console.log('Disconnected from the mongo DB.')
+        // to auto reconnect...
+       // self.connectToDatabase()
+    })
+}
+
 const newEvents2 = [
     { "createdAt": "2018-04-05T11:03:19.932-06:00", "domoEvent": { "eventId": "deed8ec0-c885-4d82-91de-8367e333cd9d",
         "timestamp": 1522947799925,
@@ -281,6 +311,12 @@ export function toggleShowCompose() {
     }
 }
 
+export function loadCurrentGuids(){
+    console.log('loadCurrentGuids()')
+    return async (dipsatch)=>{
+
+    }
+}
 
 export function toggleShowStartingSearch() {
     console.log('toggleShowStartingSearch')
