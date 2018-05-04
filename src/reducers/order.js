@@ -1,16 +1,8 @@
 import {ORDER_LOADED} from "../actions";
 
-const initialState = {
-    events: {
-        events: [],
-    },
-    order: {},
-    display: {
-        showStartingSearch: true
-    }
-}
+const initialState = { order: {} }
 
-export default function order(state=initialState, action){
+export default function orderReducer(state=initialState, action){
     console.log(`>reducers.order(): action.type: ${action.type}`)
     switch(action.type){
         case ORDER_LOADED:

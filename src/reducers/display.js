@@ -1,14 +1,7 @@
 import {TOGGLE_SHOW_STARTING_SEARCH} from "../actions";
-const initialState = {
-    events: {
-        events: [],
-    },
-    order: {},
-    display: {
-        showStartingSearch: true
-    }
-}
-export default function display(state=initialState, action){
+const initialState = { showStartingSearch: true }
+
+export default function displayReducer(state=initialState, action){
     console.log(`>reducers.display() - action.type: ${action.type}`)
     switch(action.type){
         case TOGGLE_SHOW_STARTING_SEARCH:

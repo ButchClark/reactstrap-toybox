@@ -1,16 +1,8 @@
 import {EVENTS_LOADED, TOGGLE_SHOW_COMPOSE} from "../actions";
 
-const initialState = {
-    events: {
-        events: [],
-    },
-    order: {},
-    display: {
-        showStartingSearch: true
-    }
-}
+const initialState = { events: [] }
 
-export default function events(state=initialState, action){
+export default function eventsReducer(state=initialState, action){
 
     console.log(`>reducers.events(): action.type: ${action.type}`)
     switch(action.type){

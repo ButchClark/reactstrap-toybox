@@ -1,7 +1,7 @@
 import thunk from 'redux-thunk'
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import * as reducers from './reducers'
+import rootReducer from './reducers'
 import logger from 'redux-logger'
 
 const initialState = {
@@ -15,7 +15,7 @@ const initialState = {
 }
 
 const store = createStore(
-    combineReducers(reducers),
+    rootReducer,
     initialState,
     composeWithDevTools(
         applyMiddleware(
